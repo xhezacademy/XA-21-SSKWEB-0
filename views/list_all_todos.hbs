@@ -1,0 +1,42 @@
+<div class="card mb-5">
+    <div class="card-header">
+        {{> add_todo }}
+
+        <h6>Inbox</h6>
+    </div>
+
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            {{#each activeTodos}}
+            <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                    <a href="/todos/edit/{{@index}}" class="text-info">{{this}}</a>
+
+                    <div class="pull-right">
+                        <a href="/todos/complete/{{@index}}" class="text-success">
+                            <i class="fas fa-check-circle"></i>
+                        </a>
+                        <a href="/todos/delete/{{@index}}" class="text-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h6>Completed</h6>
+    </div>
+
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            {{#each completedTodos}}
+            <li class="list-group-item"><del class="text-secondary">{{this}}</del></li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

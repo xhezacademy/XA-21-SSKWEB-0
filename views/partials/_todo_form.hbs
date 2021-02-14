@@ -1,0 +1,9 @@
+<form action="/todos/{{ actionUrl }}" method="post" class="mb-4" {{#if todo}} enctype="application/x-www-form-urlencoded"{{/if}}>
+    <input type="text" name="new_todo" class="form-control {{#if todo }}form-control-lg{{/if}}" value="{{ todo }}">
+
+    {{#if todo }}
+        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="todo_id" value="{{ todo_id }}">
+        <button type="submit" class="btn btn-success btn-lg mt-3">Save</button>
+    {{/if}}
+</form>
